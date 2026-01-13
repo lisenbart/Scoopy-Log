@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terms of Use — Scoopy Log</title>
+  <meta name="description" content="Terms of Use for Scoopy Log.">
+  <meta name="theme-color" content="#4A90E2">
+
+  <style>
+    /* Font Face */
+    @font-face {
+      font-family: 'SF Compact Rounded';
+      src: url('assets/font/SF-Compact-Rounded-Regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Reset & Base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      /* Colors - Light Theme */
+      --bg-primary: #FFFFFF;
+      --bg-secondary: #F8F9FA;
+      --bg-card: #FFFFFF;
+      
+      --text-primary: #1A1A1A;
+      --text-secondary: #6B7280;
+      --text-muted: #9CA3AF;
+      
+      --primary: #4A90E2;
+      --primary-hover: #357ABD;
+      
+      --border: #E5E7EB;
+      
+      /* Spacing */
+      --spacing-xs: 4px;
+      --spacing-sm: 8px;
+      --spacing-md: 16px;
+      --spacing-lg: 24px;
+      --spacing-xl: 32px;
+      --spacing-xxl: 48px;
+      --spacing-xxxl: 64px;
+      
+      /* Typography */
+      --font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      --font-size-base: 16px;
+      --line-height-base: 1.6;
+      
+      /* Border Radius */
+      --radius-md: 12px;
+      
+      /* Container */
+      --container-max-width: 896px;
+      --container-padding: 20px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-family);
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-base);
+      color: var(--text-primary);
+      background-color: var(--bg-primary);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'SF Compact Rounded', -apple-system, BlinkMacSystemFont, 'SF Pro Rounded', 'Segoe UI Rounded', system-ui, sans-serif;
+      font-weight: 400;
+      line-height: 1.2;
+      color: #195bc0;
+      margin-bottom: var(--spacing-md);
+    }
+
+    h1 {
+      font-size: 42px;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    h2 {
+      font-size: 28px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-top: var(--spacing-xl);
+      margin-bottom: var(--spacing-md);
+    }
+
+    p {
+      margin-bottom: var(--spacing-md);
+      color: var(--text-secondary);
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--primary-hover);
+    }
+
+    ul, ol {
+      margin-bottom: var(--spacing-md);
+      padding-left: var(--spacing-xl);
+      color: var(--text-secondary);
+    }
+
+    li {
+      margin-bottom: var(--spacing-sm);
+    }
+
+    strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .small {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: var(--container-max-width);
+      margin: 0 auto;
+      padding: 0 var(--container-padding);
+    }
+
+    /* Navigation */
+    .nav {
+      border-bottom: 1px solid var(--border);
+      padding: var(--spacing-md) 0;
+      background-color: var(--bg-primary);
+    }
+
+    .nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .logo:hover {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: var(--spacing-lg);
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+    }
+
+    /* Main Content */
+    main {
+      padding: var(--spacing-xxxl) 0;
+      min-height: calc(100vh - 200px);
+    }
+
+    .article {
+      max-width: var(--container-max-width);
+      margin: 0 auto;
+      padding: 0 var(--container-padding);
+    }
+
+    .effective-date {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: var(--spacing-xl);
+      padding-bottom: var(--spacing-lg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    section {
+      margin-bottom: var(--spacing-xl);
+    }
+
+    section:last-child {
+      margin-bottom: 0;
+    }
+
+    .back-link {
+      margin-top: var(--spacing-xxxl);
+      padding-top: var(--spacing-xl);
+      border-top: 1px solid var(--border);
+    }
+
+    .back-link a {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      font-weight: 500;
+      color: var(--primary);
+    }
+
+    .back-link a:hover {
+      color: var(--primary-hover);
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--bg-secondary);
+      padding: var(--spacing-xl) 0;
+      border-top: 1px solid var(--border);
+      margin-top: var(--spacing-xxxl);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--spacing-lg);
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-xs);
+    }
+
+    .footer-logo {
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--text-primary);
+    }
+
+    .footer-copyright {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: var(--spacing-lg);
+    }
+
+    .footer-links a {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .footer-links a:hover {
+      color: var(--text-primary);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 32px;
+      }
+      
+      h2 {
+        font-size: 24px;
+      }
+
+      .nav-links {
+        gap: var(--spacing-md);
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      main {
+        padding: var(--spacing-xxl) 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      :root {
+        --container-padding: 16px;
+      }
+      
+      h1 {
+        font-size: 28px;
+      }
+      
+      h2 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container">
+      <a href="index.html" class="logo">Scoopy Log</a>
+      <div class="nav-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html" class="active">Terms</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <article class="article">
+      <div class="container">
+        <h1>Terms of Use</h1>
+        
+        <p class="effective-date"><strong>Effective Date:</strong> January 30, 2025</p>
+
+        <section>
+          <h2>Acceptance of Terms</h2>
+          <p>By using Scoopy Log, you agree to these Terms of Use. If you do not agree, please do not use the app.</p>
+        </section>
+
+        <section>
+          <h2>Use of the Service</h2>
+          <p>Scoopy Log is provided "as is" for your personal use. You may use the app to log and track information about your child's routines.</p>
+          <p>You are responsible for the accuracy of the data you enter. We do not verify or validate the information you log.</p>
+        </section>
+
+        <section>
+          <h2>Not Medical Advice</h2>
+          <p><strong>Important:</strong> Scoopy Log is not a medical device or diagnostic tool. It does not provide medical advice, diagnosis, or treatment recommendations.</p>
+          <p>The information you log in the app is for your personal reference only. It should not be used to make medical decisions.</p>
+          <p>Always consult with qualified healthcare professionals for medical advice regarding your child's health.</p>
+          <p>We are not liable for any medical decisions made based on data logged in Scoopy Log.</p>
+        </section>
+
+        <section>
+          <h2>Premium Features</h2>
+          <p>Scoopy Log offers a premium feature: <strong>Exporting Captain's Log (PDF)</strong>, a structured document of user-recorded data.</p>
+          <p>This feature allows you to export your logged data as a PDF document. All payments and subscriptions are handled exclusively by Apple through the App Store. Pricing and renewal terms are shown in the App Store at the time of purchase.</p>
+          <p>Premium features may be available as:</p>
+          <ul>
+            <li>One-time purchase</li>
+            <li>Subscription (monthly or annual)</li>
+          </ul>
+          <p class="small">Specific pricing, payment terms, and subscription management are controlled by Apple and displayed in the App Store.</p>
+        </section>
+
+        <section>
+          <h2>Limitation of Liability</h2>
+          <p>To the maximum extent permitted by law, Scoopy Log is provided "as is" without warranties of any kind, either express or implied.</p>
+          <p>We are not liable for any loss or damage arising from your use of the app, including but not limited to:</p>
+          <ul>
+            <li>Data loss or corruption</li>
+            <li>Inability to access the app</li>
+            <li>Errors or inaccuracies in logged data</li>
+            <li>Medical decisions made based on app data</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Changes to Terms</h2>
+          <p>We may update these Terms of Use from time to time. Continued use of the app after changes constitutes acceptance of the updated terms.</p>
+        </section>
+
+        <section>
+          <h2>Contact</h2>
+          <p>If you have questions about these Terms of Use, please contact us at:</p>
+          <p><a href="mailto:support@scoopylog.com">support@scoopylog.com</a></p>
+        </section>
+
+        <div class="back-link">
+          <a href="index.html">← Back to home</a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="footer-logo">Scoopy Log</span>
+          <p class="footer-copyright">© 2025 SmartBabies™. All rights reserved.</p>
+        </div>
+        <nav class="footer-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Use</a>
+          <a href="mailto:support@scoopylog.com">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

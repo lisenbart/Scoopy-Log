@@ -1,0 +1,1148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scoopy Log — A calm daily log for parents of babies</title>
+  <meta name="description" content="Track sleep, feeding, and diaper changes with ease. Built for parents who want clarity without complexity.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#4A90E2">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Scoopy Log — A calm daily log for parents of babies">
+  <meta property="og:description" content="Track sleep, feeding, and diaper changes with ease. Built for parents who want clarity without complexity.">
+
+  <style>
+    /* Font Face */
+    @font-face {
+      font-family: 'SF Compact Rounded';
+      src: url('assets/font/SF-Compact-Rounded-Regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Reset & Base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      /* Colors - Light Theme */
+      --bg-primary: #FFFFFF;
+      --bg-secondary: #F8F9FA;
+      --bg-card: #FFFFFF;
+      --bg-card-alt: #F5F6F7;
+      
+      --text-primary: #1A1A1A;
+      --text-secondary: #6B7280;
+      --text-muted: #9CA3AF;
+      
+      --primary: #4A90E2;
+      --primary-hover: #357ABD;
+      --secondary: #FF8C42;
+      --accent: #E85D75;
+      
+      --border: #E5E7EB;
+      --border-light: #F3F4F6;
+      
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      
+      /* Spacing */
+      --spacing-xs: 4px;
+      --spacing-sm: 8px;
+      --spacing-md: 16px;
+      --spacing-lg: 24px;
+      --spacing-xl: 32px;
+      --spacing-xxl: 48px;
+      --spacing-xxxl: 64px;
+      
+      /* Typography */
+      --font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      --font-size-base: 16px;
+      --line-height-base: 1.6;
+      
+      /* Border Radius */
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      
+      /* Container */
+      --container-max-width: 1120px;
+      --container-padding: 20px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-family);
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-base);
+      color: var(--text-primary);
+      background-color: var(--bg-primary);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'SF Compact Rounded', -apple-system, BlinkMacSystemFont, 'SF Pro Rounded', 'Segoe UI Rounded', system-ui, sans-serif;
+      font-weight: 400;
+      line-height: 1.2;
+      color: #195bc0;
+      margin-bottom: var(--spacing-md);
+    }
+
+    h1 {
+      font-size: 48px;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 36px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    h3 {
+      font-size: 21px;
+      font-weight: 400;
+      line-height: 25px;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    p {
+      margin-bottom: var(--spacing-md);
+      color: var(--text-secondary);
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--primary-hover);
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: var(--container-max-width);
+      margin: 0 auto;
+      padding: 0 var(--container-padding);
+    }
+
+    /* Sections */
+    .section {
+      padding: var(--spacing-xxxl) 0;
+    }
+
+    .section-alt {
+      background-color: var(--bg-secondary);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: var(--spacing-xxxl) 0;
+      background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-xxxl);
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .hero-tagline {
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .hero-description {
+      font-size: 18px;
+      color: var(--text-secondary);
+      margin-bottom: var(--spacing-xl);
+      max-width: 540px;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+      align-items: flex-start;
+    }
+
+    .hero-rating {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+    }
+
+    .stars {
+      display: flex;
+      gap: 2px;
+    }
+
+    .star {
+      color: #FFB800;
+      font-size: 18px;
+    }
+
+    .rating-text {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .hero-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--radius-lg);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--spacing-sm);
+      padding: var(--spacing-md) var(--spacing-lg);
+      border-radius: var(--radius-md);
+      font-weight: 500;
+      font-size: 16px;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-app-store {
+      background-color: var(--text-primary);
+      color: var(--bg-primary);
+      padding: var(--spacing-md) var(--spacing-xl);
+    }
+
+    .btn-app-store:hover {
+      background-color: #2D2D2D;
+      color: var(--bg-primary);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-large {
+      padding: var(--spacing-lg) var(--spacing-xl);
+      font-size: 18px;
+    }
+
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--spacing-xl);
+      margin-top: var(--spacing-xl);
+    }
+
+    .feature-card {
+      padding: var(--spacing-xl);
+      background-color: var(--bg-card);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-md);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .feature-icon {
+      flex-shrink: 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding-top: 2px; /* Align with text baseline */
+    }
+
+    /* Icon sizes from PDF - exact dimensions */
+    .feature-card[data-tracker="sleep"] .feature-icon img {
+      width: 21.43px;
+      height: 21.16px;
+      object-fit: contain;
+    }
+
+    .feature-card[data-tracker="feeding"] .feature-icon img {
+      width: 12.54px;
+      height: 24.71px;
+      object-fit: contain;
+    }
+
+    .feature-card[data-tracker="diapers"] .feature-icon img {
+      width: 16.91px;
+      height: 22.78px;
+      object-fit: contain;
+    }
+
+    .feature-card[data-tracker="growth"] .feature-icon img {
+      width: 21.96px;
+      height: 21.96px;
+      object-fit: contain;
+    }
+
+    .feature-content {
+      flex: 1;
+    }
+
+    .feature-card h3 {
+      font-size: 21px;
+      line-height: 25px;
+      font-weight: 400;
+      margin-bottom: var(--spacing-xs);
+    }
+
+    /* Colors from PDF Page 1 */
+    .feature-card[data-tracker="sleep"] h3 {
+      color: #1572FF;
+    }
+
+    .feature-card[data-tracker="feeding"] h3 {
+      color: #FF5C00;
+    }
+
+    .feature-card[data-tracker="diapers"] h3 {
+      color: #00C064;
+    }
+
+    .feature-card[data-tracker="growth"] h3 {
+      color: #4D9F86;
+    }
+
+    .feature-card p {
+      font-size: 13px;
+      line-height: 16px;
+      margin-bottom: 0;
+    }
+
+    /* Benefits Grid */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-xl);
+    }
+
+    .benefit-card {
+      display: flex;
+      gap: var(--spacing-md);
+      padding: var(--spacing-lg);
+      background-color: var(--bg-card);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .benefit-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .benefit-content h3 {
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .benefit-content p {
+      font-size: 15px;
+      margin-bottom: 0;
+    }
+
+    /* Screenshots Grid */
+    .screenshots-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--spacing-xl);
+      margin-top: var(--spacing-xl);
+    }
+
+    .screenshot-item {
+      text-align: center;
+    }
+
+    .screenshot-placeholder {
+      background: linear-gradient(135deg, #E8F4FD 0%, #F0F8FF 100%);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-lg);
+      margin-bottom: var(--spacing-md);
+      box-shadow: var(--shadow-sm);
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border-light);
+    }
+
+    .screenshot-placeholder svg {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      opacity: 0.6;
+    }
+
+    .screenshot-item h3 {
+      font-size: 21px;
+      line-height: 25px;
+      font-weight: 400;
+      margin-bottom: var(--spacing-sm);
+      margin-top: var(--spacing-md);
+    }
+
+    .screenshot-item p {
+      font-weight: 400;
+      color: var(--text-secondary);
+      margin-bottom: 0;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    /* Captain's Log */
+    .captains-log-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-xxxl);
+      align-items: center;
+    }
+
+    .captains-log-text h2 {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .captains-log-text p {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .premium-note {
+      font-weight: 500;
+      color: var(--primary);
+      margin-top: var(--spacing-md);
+    }
+
+    .captains-log-preview {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .pdf-preview {
+      background-color: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-xl);
+      box-shadow: var(--shadow-md);
+      text-align: center;
+      min-width: 200px;
+    }
+
+    .pdf-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto var(--spacing-md);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pdf-label {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-xs);
+    }
+
+    .pdf-title {
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--text-primary);
+    }
+
+    .pdf-subtitle {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    /* Pricing */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing-xl);
+      margin-top: var(--spacing-xl);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .pricing-card {
+      background-color: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-xl);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+
+    .pricing-card-featured {
+      border: 2px solid var(--primary);
+      box-shadow: var(--shadow-md);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--primary);
+      color: var(--bg-primary);
+      padding: var(--spacing-xs) var(--spacing-md);
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .pricing-card h3 {
+      margin-top: var(--spacing-md);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .pricing-amount {
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .pricing-period {
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--text-secondary);
+    }
+
+    .pricing-features {
+      list-style: none;
+    }
+
+    .pricing-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-sm);
+      margin-bottom: var(--spacing-md);
+      color: var(--text-secondary);
+    }
+
+    .pricing-features li svg {
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: var(--primary);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      text-align: center;
+      background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    }
+
+    .cta-section h2 {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .cta-section p {
+      margin-bottom: var(--spacing-xl);
+      font-size: 18px;
+    }
+
+    /* Privacy Section */
+    .privacy-content {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .privacy-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto var(--spacing-lg);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .privacy-content h2 {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .privacy-content p {
+      font-size: 16px;
+      margin-bottom: var(--spacing-md);
+    }
+
+    /* Contact Section */
+    #contact {
+      text-align: center;
+    }
+
+    .contact-email {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--primary);
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--bg-secondary);
+      padding: var(--spacing-xl) 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--spacing-lg);
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-xs);
+    }
+
+    .footer-logo {
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--text-primary);
+    }
+
+    .footer-copyright {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: var(--spacing-lg);
+    }
+
+    .footer-nav a {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .footer-nav a:hover {
+      color: var(--text-primary);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 36px;
+      }
+      
+      h2 {
+        font-size: 28px;
+      }
+      
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+      }
+      
+      .hero-image {
+        order: -1;
+      }
+      
+      .features-grid,
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .captains-log-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .section {
+        padding: var(--spacing-xxl) 0;
+      }
+      
+      .hero {
+        padding: var(--spacing-xxl) 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      :root {
+        --container-padding: 16px;
+      }
+      
+      h1 {
+        font-size: 32px;
+      }
+      
+      h2 {
+        font-size: 24px;
+      }
+      
+      .hero-tagline {
+        font-size: 20px;
+      }
+      
+      .hero-description {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Scoopy Log</h1>
+          <p class="hero-tagline">A calm daily log for parents of babies.</p>
+          <p class="hero-description">
+            Track sleep, feeding, and diaper changes with ease. Built for parents who want clarity without complexity.
+          </p>
+          <div class="hero-cta">
+            <a href="https://apps.apple.com/app/scoopy-log" class="btn btn-app-store" target="_blank" rel="noopener">
+              <svg width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 0L0 6V18L10 24L20 18V6L10 0Z" fill="currentColor"/>
+              </svg>
+              Download on App Store
+            </a>
+            <div class="hero-rating">
+              <div class="stars">
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+              </div>
+              <span class="rating-text">4.9 rating</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="assets/hero-avatar.jpg" alt="Scoopy Log - A calm daily log for parents" loading="eager" decoding="async">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What is Scoopy Log -->
+  <section class="section" id="what-is">
+    <div class="container">
+      <h2>What is Scoopy Log?</h2>
+      <p class="section-text">
+        Scoopy Log is a simple daily tracker designed for parents of babies and toddlers. It helps you keep a gentle record of your child's routines—sleep, feeding, diapers, and growth—so you can stay organized, share updates with caregivers, and have clarity during pediatric visits. No clutter, no stress.
+      </p>
+    </div>
+  </section>
+
+  <!-- How it helps parents -->
+  <section class="section section-alt" id="how-it-helps">
+    <div class="container">
+      <h2>How it helps parents</h2>
+      <div class="features-grid">
+        <div class="feature-card" data-tracker="sleep">
+          <div class="feature-icon">
+            <img src="assets/icon-sleep.png" alt="Sleep tracker icon">
+          </div>
+          <div class="feature-content">
+            <h3>Sleep</h3>
+            <p>Track nap times and overnight sleep to review your baby's records.</p>
+          </div>
+        </div>
+        <div class="feature-card" data-tracker="feeding">
+          <div class="feature-icon">
+            <img src="assets/icon-feeding.png" alt="Feeding tracker icon">
+          </div>
+          <div class="feature-content">
+            <h3>Feeding</h3>
+            <p>Log nursing sessions, bottles, and solid foods with simple taps.</p>
+          </div>
+        </div>
+        <div class="feature-card" data-tracker="diapers">
+          <div class="feature-icon">
+            <img src="assets/icon-diapers.png" alt="Diapers tracker icon">
+          </div>
+          <div class="feature-content">
+            <h3>Diapers</h3>
+            <p>Keep a record of diaper changes to stay on top of your baby's health.</p>
+          </div>
+        </div>
+        <div class="feature-card" data-tracker="growth">
+          <div class="feature-icon">
+            <img src="assets/icon-growth.png" alt="Growth tracker icon">
+          </div>
+          <div class="feature-content">
+            <h3>Growth</h3>
+            <p>Monitor milestones, weight, and height as your child grows.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why parents choose -->
+  <section class="section" id="why-choose">
+    <div class="container">
+      <h2>Why parents choose Scoopy Log</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 8L12 12V20L20 24L28 20V12L20 8Z" stroke="currentColor" stroke-width="2" fill="none"/>
+              <path d="M20 24V32" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="benefit-content">
+            <h3>Simple and fast</h3>
+            <p>Log an activity in seconds. No complicated forms or overwhelming interfaces.</p>
+          </div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="20" r="12" stroke="currentColor" stroke-width="2" fill="none"/>
+              <path d="M14 20L18 24L26 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="benefit-content">
+            <h3>Share with caregivers</h3>
+            <p>Invite partners, grandparents, or nannies to view and contribute to your log.</p>
+          </div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 20H32M20 8V32" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="2" fill="none"/>
+            </svg>
+          </div>
+          <div class="benefit-content">
+            <h3>Review records</h3>
+            <p>View daily and weekly records at a glance to review your logged data.</p>
+          </div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="8" y="12" width="24" height="20" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+              <path d="M14 18H26M14 24H22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="benefit-content">
+            <h3>Export and share</h3>
+            <p>Generate clean PDF reports to share with your pediatrician or keep for your records.</p>
+          </div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 8L12 12V20L20 24L28 20V12L20 8Z" stroke="currentColor" stroke-width="2" fill="none"/>
+              <path d="M20 24V32M20 32L16 30M20 32L24 30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="benefit-content">
+            <h3>Private and secure</h3>
+            <p>Your family's data stays yours. No ads, no tracking, no third-party sharing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Simple by design -->
+  <section class="section section-alt" id="simple-design">
+    <div class="container">
+      <h2>Simple by design</h2>
+      <div class="screenshots-grid">
+        <div class="screenshot-item">
+          <div class="screenshot-placeholder">
+            <svg width="300" height="600" viewBox="0 0 300 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="300" height="600" rx="24" fill="white" stroke="#E5E7EB" stroke-width="2"/>
+              <rect x="20" y="40" width="260" height="40" rx="8" fill="#F3F4F6"/>
+              <circle cx="40" cy="60" r="12" fill="#4A90E2"/>
+              <rect x="60" y="50" width="120" height="20" rx="4" fill="#E5E7EB"/>
+              <rect x="20" y="100" width="260" height="200" rx="12" fill="#F8F9FA"/>
+              <rect x="30" y="120" width="240" height="12" rx="2" fill="#E5E7EB"/>
+              <rect x="30" y="140" width="200" height="12" rx="2" fill="#E5E7EB"/>
+              <rect x="30" y="160" width="220" height="12" rx="2" fill="#E5E7EB"/>
+              <rect x="30" y="180" width="180" height="12" rx="2" fill="#E5E7EB"/>
+              <rect x="30" y="200" width="240" height="12" rx="2" fill="#E5E7EB"/>
+              <rect x="30" y="220" width="190" height="12" rx="2" fill="#E5E7EB"/>
+              <rect x="30" y="240" width="210" height="12" rx="2" fill="#E5E7EB"/>
+              <rect x="20" y="320" width="260" height="60" rx="8" fill="#F3F4F6"/>
+              <rect x="20" y="400" width="260" height="60" rx="8" fill="#F3F4F6"/>
+              <rect x="20" y="480" width="260" height="60" rx="8" fill="#4A90E2"/>
+            </svg>
+          </div>
+          <h3>A calm daily log</h3>
+          <p>Keep a simple, private record of your baby's daily routines. No advice. No pressure. Just clear notes you can trust.</p>
+        </div>
+        <div class="screenshot-item">
+          <div class="screenshot-placeholder">
+            <svg width="300" height="600" viewBox="0 0 300 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="300" height="600" rx="24" fill="white" stroke="#E5E7EB" stroke-width="2"/>
+              <rect x="20" y="40" width="260" height="40" rx="8" fill="#F3F4F6"/>
+              <circle cx="40" cy="60" r="12" fill="#4A90E2"/>
+              <rect x="60" y="50" width="120" height="20" rx="4" fill="#E5E7EB"/>
+              <rect x="20" y="100" width="260" height="200" rx="12" fill="#F8F9FA"/>
+              <circle cx="80" cy="180" r="8" fill="#E5E7EB" opacity="0.5"/>
+              <circle cx="150" cy="180" r="8" fill="#E5E7EB" opacity="0.5"/>
+              <circle cx="220" cy="180" r="8" fill="#4A90E2" opacity="0.3"/>
+              <rect x="30" y="220" width="100" height="8" rx="2" fill="#E5E7EB"/>
+              <rect x="140" y="220" width="120" height="8" rx="2" fill="#E5E7EB"/>
+              <rect x="30" y="240" width="80" height="8" rx="2" fill="#E5E7EB"/>
+              <rect x="20" y="320" width="260" height="60" rx="8" fill="#F3F4F6"/>
+              <rect x="20" y="400" width="260" height="60" rx="8" fill="#F3F4F6"/>
+              <rect x="20" y="480" width="260" height="60" rx="8" fill="#4A90E2"/>
+            </svg>
+          </div>
+          <h3>Designed for everyday life</h3>
+          <p>Log moments as they happen. Nothing to set up, nothing to manage. The app stays out of your way.</p>
+        </div>
+        <div class="screenshot-item">
+          <div class="screenshot-placeholder">
+            <svg width="300" height="600" viewBox="0 0 300 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="300" height="600" rx="24" fill="white" stroke="#E5E7EB" stroke-width="2"/>
+              <rect x="20" y="40" width="260" height="40" rx="8" fill="#F3F4F6"/>
+              <circle cx="40" cy="60" r="12" fill="#4A90E2"/>
+              <rect x="60" y="50" width="120" height="20" rx="4" fill="#E5E7EB"/>
+              <rect x="20" y="100" width="260" height="200" rx="12" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1"/>
+              <rect x="30" y="120" width="240" height="16" rx="2" fill="#F3F4F6"/>
+              <rect x="30" y="150" width="200" height="10" rx="2" fill="#E5E7EB"/>
+              <rect x="30" y="170" width="220" height="10" rx="2" fill="#E5E7EB"/>
+              <rect x="30" y="190" width="180" height="10" rx="2" fill="#E5E7EB"/>
+              <rect x="30" y="210" width="240" height="10" rx="2" fill="#E5E7EB"/>
+              <rect x="30" y="230" width="190" height="10" rx="2" fill="#E5E7EB"/>
+              <rect x="30" y="250" width="210" height="10" rx="2" fill="#E5E7EB"/>
+              <rect x="20" y="320" width="260" height="60" rx="8" fill="#F3F4F6"/>
+              <rect x="20" y="400" width="260" height="60" rx="8" fill="#F3F4F6"/>
+              <rect x="20" y="480" width="260" height="60" rx="8" fill="#4A90E2"/>
+            </svg>
+          </div>
+          <h3>Captain's Log (PDF)</h3>
+          <p>When you need it, export a clear, well-structured PDF with your records — calm, readable, and yours to keep.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Captain's Log -->
+  <section class="section" id="captains-log">
+    <div class="container">
+      <div class="captains-log-content">
+        <div class="captains-log-text">
+          <h2>Captain's Log</h2>
+          <p>Export your complete care history as a professional PDF report.</p>
+          <p>Perfect for pediatrician visits, care transitions, or your own records. The Captain's Log includes all logged activities organized by date.</p>
+          <p class="premium-note">Available with Scoopy Log Premium.</p>
+        </div>
+        <div class="captains-log-preview">
+          <div class="pdf-preview">
+            <div class="pdf-icon">
+              <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="8" width="48" height="64" rx="4" stroke="currentColor" stroke-width="2" fill="none"/>
+                <path d="M20 24H44M20 32H44M20 40H36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="pdf-label">
+              <span class="pdf-title">Captain's Log</span>
+              <span class="pdf-subtitle">PDF Report</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section section-alt" id="pricing">
+    <div class="container">
+      <h2>Pricing</h2>
+      <p style="text-align: center; margin-bottom: var(--spacing-xl); color: var(--text-secondary);">All purchases are made via the App Store. Pricing and subscription terms are shown in the App Store.</p>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>Free</h3>
+          <div class="pricing-amount">Free</div>
+          <ul class="pricing-features">
+            <li>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 5L7 14L4 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Track sleep, feeding, and diapers
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 5L7 14L4 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Review daily records
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 5L7 14L4 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Share with one caregiver
+            </li>
+          </ul>
+        </div>
+        <div class="pricing-card pricing-card-featured">
+          <div class="pricing-badge">POPULAR</div>
+          <h3>Premium</h3>
+          <div class="pricing-amount">Premium</div>
+          <ul class="pricing-features">
+            <li>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 5L7 14L4 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Everything in Free
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 5L7 14L4 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Captain's Log PDF export
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 5L7 14L4 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Unlimited caregivers
+            </li>
+          </ul>
+          <p style="margin-top: var(--spacing-lg); font-size: 14px; color: var(--text-secondary);">All purchases are made via the App Store. Pricing and subscription terms are shown in the App Store.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download CTA -->
+  <section class="section cta-section" id="download">
+    <div class="container">
+      <h2>Start tracking today</h2>
+      <p>Join thousands of parents who trust Scoopy Log every day.</p>
+      <a href="https://apps.apple.com/app/scoopy-log" class="btn btn-app-store btn-large" target="_blank" rel="noopener">
+        <svg width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 0L0 6V18L10 24L20 18V6L10 0Z" fill="currentColor"/>
+        </svg>
+        Download on App Store
+      </a>
+    </div>
+  </section>
+
+  <!-- Privacy & Trust -->
+  <section class="section section-alt" id="privacy">
+    <div class="container">
+      <div class="privacy-content">
+        <div class="privacy-icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 8L12 12V22C12 30 18 36 24 40C30 36 36 30 36 22V12L24 8Z" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M20 24L22 26L28 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h2>Your privacy matters</h2>
+        <p>No ads. No data selling. No tracking.</p>
+        <p>Scoopy Log is built with privacy at its core. Your family's data is never analyzed, sold, or shared with third parties. We don't run ads or track your behavior. Your information stays private and secure.</p>
+        <p>We're parents too. We built the app we wanted to use.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="container">
+      <h2>Need help?</h2>
+      <p>We're here to help. Reach out anytime with questions or feedback.</p>
+      <a href="mailto:support@scoopylog.com" class="contact-email">support@scoopylog.com</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="footer-logo">Scoopy Log</span>
+          <p class="footer-copyright">© 2025 SmartBabies™. All rights reserved.</p>
+        </div>
+        <nav class="footer-nav">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Use</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll for anchor links
+    document.addEventListener('DOMContentLoaded', function() {
+      const anchorLinks = document.querySelectorAll('a[href^="#"]');
+      
+      anchorLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href === '#') return;
+          
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
