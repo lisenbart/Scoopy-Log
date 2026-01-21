@@ -7,11 +7,60 @@
   <meta name="description" content="Track sleep, feeding, and diaper changes with ease. Built for parents who want clarity without complexity.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#4A90E2">
+  <link rel="canonical" href="https://scoopylog.app/">
+
+  <link rel="preload" href="assets/font/SF-Compact-Rounded-Regular.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="assets/hero-avatar.jpg" as="image">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Scoopy Log — A calm daily log for parents of babies">
   <meta property="og:description" content="Track sleep, feeding, and diaper changes with ease. Built for parents who want clarity without complexity.">
+  <meta property="og:url" content="https://scoopylog.app/">
+  <meta property="og:site_name" content="Scoopy Log">
+  <meta property="og:image" content="https://scoopylog.app/assets/hero-avatar.jpg">
+  <meta property="og:image:alt" content="Scoopy Log — A calm daily log for parents of babies">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Scoopy Log — A calm daily log for parents of babies">
+  <meta name="twitter:description" content="Track sleep, feeding, and diaper changes with ease. Built for parents who want clarity without complexity.">
+  <meta name="twitter:image" content="https://scoopylog.app/assets/hero-avatar.jpg">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "SmartBabies",
+          "url": "https://scoopylog.app/",
+          "email": "support@scoopylog.app"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Scoopy Log",
+          "operatingSystem": "iOS",
+          "description": "Track sleep, feeding, and diaper changes with ease. Built for parents who want clarity without complexity.",
+          "url": "https://scoopylog.app/",
+          "installUrl": "https://apps.apple.com/app/scoopy-log",
+          "publisher": {
+            "@type": "Organization",
+            "name": "SmartBabies"
+          },
+          "featureList": [
+            "Track sleep (nap times and overnight sleep).",
+            "Log feeding (nursing sessions, bottles, and solid foods).",
+            "Keep a record of diaper changes.",
+            "Track growth (milestones, weight, and height).",
+            "Share updates with caregivers (limits apply on the Free plan).",
+            "Export Captain's Log as a PDF report (Premium)."
+          ]
+        }
+      ]
+    }
+  </script>
 
   <style>
     /* Font Face */
@@ -770,7 +819,7 @@
           </div>
         </div>
         <div class="hero-image">
-          <img src="assets/hero-avatar.jpg" alt="Scoopy Log - A calm daily log for parents" loading="eager" decoding="async">
+          <img src="assets/hero-avatar.jpg" alt="Scoopy Log - A calm daily log for parents" width="600" height="600" loading="eager" decoding="async" fetchpriority="high">
         </div>
       </div>
     </div>
