@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Scoopy Log — Baby Tracker App for Sleep, Feeding & Diapers | iOS</title>
-  <meta name="description" content="Simple baby tracker app for iOS. Track sleep, feeding, diaper changes, and growth. Live sleep timer on the Lock Screen, Home and Lock Screen widgets, iCloud backup. Export Summary (Free) and Full (Premium) PDF reports. Free and Premium plans.">
+  <meta name="description" content="Calm daily logs for baby sleep, feeding, diapers, and measurements on iOS. Lock Screen sleep timer, Home & Lock Screen widgets, optional iCloud sync. Export Summary (Free) and Full (Premium) Captain's Log PDFs.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#4A90E2">
   <link rel="canonical" href="https://scoopylog.app/">
@@ -14,11 +14,12 @@
 
   <link rel="preload" href="assets/font/SF-Compact-Rounded-Regular.otf" as="font" type="font/otf" crossorigin>
   <link rel="preload" href="assets/hero-avatar.jpg" as="image">
+  <link rel="stylesheet" href="styles.css">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Scoopy Log — Baby Tracker App for Sleep, Feeding & Diapers | iOS">
-  <meta property="og:description" content="Simple baby tracker app for iOS. Track sleep, feeding, diaper changes, and growth. Live sleep timer on the Lock Screen, Home and Lock Screen widgets, iCloud backup. Export Summary (Free) and Full (Premium) PDF reports. Free and Premium plans.">
+  <meta property="og:description" content="Calm daily logs for baby sleep, feeding, diapers, and measurements on iOS. Lock Screen sleep timer, Home & Lock Screen widgets, optional iCloud sync. Export Summary (Free) and Full (Premium) Captain's Log PDFs.">
   <meta property="og:url" content="https://scoopylog.app/">
   <meta property="og:site_name" content="Scoopy Log">
   <meta property="og:image" content="https://scoopylog.app/assets/hero-avatar.jpg">
@@ -27,7 +28,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Scoopy Log — Baby Tracker App for Sleep, Feeding & Diapers | iOS">
-  <meta name="twitter:description" content="Simple baby tracker app for iOS. Track sleep, feeding, diaper changes, and growth. Live sleep timer on the Lock Screen, Home and Lock Screen widgets, iCloud backup. Export Summary (Free) and Full (Premium) PDF reports. Free and Premium plans.">
+  <meta name="twitter:description" content="Calm daily logs for baby sleep, feeding, diapers, and measurements on iOS. Lock Screen sleep timer, Home & Lock Screen widgets, optional iCloud sync. Export Summary (Free) and Full (Premium) Captain's Log PDFs.">
   <meta name="twitter:image" content="https://scoopylog.app/assets/hero-avatar.jpg">
 
   <!-- Structured data -->
@@ -45,7 +46,7 @@
           "@type": "SoftwareApplication",
           "name": "Scoopy Log",
           "operatingSystem": "iOS",
-          "description": "Simple baby tracker app for iOS. Track sleep, feeding, diaper changes, and growth. Live sleep timer on the Lock Screen, Home and Lock Screen widgets, iCloud backup. Export Summary (Free) and Full (Premium) PDF reports. Free and Premium plans.",
+          "description": "Calm daily logs for baby sleep, feeding, diapers, and measurements on iOS. Lock Screen sleep timer, Home and Lock Screen widgets, optional iCloud sync. Export Summary (Free) and Full (Premium) Captain's Log PDFs.",
           "url": "https://scoopylog.app/",
           "installUrl": "https://apps.apple.com/app/scoopy-log",
           "publisher": {
@@ -57,751 +58,35 @@
             "Home and Lock Screen widgets to view logs at a glance.",
             "Log feeding (nursing sessions, bottles, and solid foods).",
             "Keep a record of diaper changes.",
-            "Track growth (milestones, weight, and height).",
-            "iCloud backup and restore (private, Apple ID only, no extra account).",
-            "Summary PDF (Free) and Full PDF (Premium) export.",
-            "Export to share with your pediatrician or use iCloud across your devices (same Apple ID)."
+            "Track measurements (height and weight entries).",
+            "Optional iCloud sync (uses your personal Apple iCloud account).",
+            "Summary PDF (Free) and Full PDF (Premium) Captain's Log export.",
+            "Export for sharing when needed or optional iCloud sync across your devices."
           ]
         }
       ]
     }
   </script>
-
-  <style>
-    /* Font Face */
-    @font-face {
-      font-family: 'SF Compact Rounded';
-      src: url('assets/font/SF-Compact-Rounded-Regular.otf') format('opentype');
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    /* Reset & Base */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    :root {
-      /* Colors - Light Theme */
-      --bg-primary: #FFFFFF;
-      --bg-secondary: #F8F9FA;
-      --bg-card: #FFFFFF;
-      --bg-card-alt: #F5F6F7;
-      
-      --text-primary: #1A1A1A;
-      --text-secondary: #6B7280;
-      --text-muted: #9CA3AF;
-      
-      --primary: #4A90E2;
-      --primary-hover: #357ABD;
-      --secondary: #FF8C42;
-      --accent: #E85D75;
-      
-      --border: #E5E7EB;
-      --border-light: #F3F4F6;
-      
-      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      
-      /* Spacing */
-      --spacing-xs: 4px;
-      --spacing-sm: 8px;
-      --spacing-md: 16px;
-      --spacing-lg: 24px;
-      --spacing-xl: 32px;
-      --spacing-xxl: 48px;
-      --spacing-xxxl: 64px;
-      
-      /* Typography */
-      --font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      --font-size-base: 16px;
-      --line-height-base: 1.6;
-      
-      /* Border Radius */
-      --radius-sm: 8px;
-      --radius-md: 12px;
-      --radius-lg: 16px;
-      --radius-xl: 24px;
-      
-      /* Container */
-      --container-max-width: 1120px;
-      --container-padding: 20px;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: var(--font-family);
-      font-size: var(--font-size-base);
-      line-height: var(--line-height-base);
-      color: var(--text-primary);
-      background-color: var(--bg-primary);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    /* Typography */
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'SF Compact Rounded', -apple-system, BlinkMacSystemFont, 'SF Pro Rounded', 'Segoe UI Rounded', system-ui, sans-serif;
-      font-weight: 400;
-      line-height: 1.2;
-      color: #195bc0;
-      margin-bottom: var(--spacing-md);
-    }
-
-    h1 {
-      font-size: 48px;
-      font-weight: 400;
-      letter-spacing: -0.02em;
-    }
-
-    h2 {
-      font-size: 36px;
-      font-weight: 400;
-      letter-spacing: -0.01em;
-      margin-bottom: var(--spacing-lg);
-    }
-
-    h3 {
-      font-size: 21px;
-      font-weight: 400;
-      line-height: 25px;
-      margin-bottom: var(--spacing-sm);
-    }
-
-    p {
-      margin-bottom: var(--spacing-md);
-      color: var(--text-secondary);
-    }
-
-    a {
-      color: var(--primary);
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-
-    a:hover {
-      color: var(--primary-hover);
-    }
-
-    /* Container */
-    .container {
-      width: 100%;
-      max-width: var(--container-max-width);
-      margin: 0 auto;
-      padding: 0 var(--container-padding);
-    }
-
-    /* Sections */
-    .section {
-      padding: var(--spacing-xxxl) 0;
-    }
-
-    .section-alt {
-      background-color: var(--bg-secondary);
-    }
-
-    /* Hero Section */
-    .hero {
-      padding: var(--spacing-xxxl) 0;
-      background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-    }
-
-    .hero-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--spacing-xxxl);
-      align-items: center;
-    }
-
-    .hero-text h1 {
-      margin-bottom: var(--spacing-md);
-    }
-
-    .hero-tagline {
-      font-size: 24px;
-      font-weight: 500;
-      color: var(--text-primary);
-      margin-bottom: var(--spacing-md);
-    }
-
-    .hero-description {
-      font-size: 18px;
-      color: var(--text-secondary);
-      margin-bottom: var(--spacing-xl);
-      max-width: 540px;
-    }
-
-    .hero-cta {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-md);
-      align-items: flex-start;
-    }
-
-    .hero-rating {
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-sm);
-    }
-
-    .stars {
-      display: flex;
-      gap: 2px;
-    }
-
-    .star {
-      color: #FFB800;
-      font-size: 18px;
-    }
-
-    .rating-text {
-      font-size: 14px;
-      color: var(--text-secondary);
-    }
-
-    .hero-image {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .hero-image img {
-      max-width: 100%;
-      height: auto;
-      border-radius: var(--radius-lg);
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--spacing-sm);
-      padding: var(--spacing-md) var(--spacing-lg);
-      border-radius: var(--radius-md);
-      font-weight: 500;
-      font-size: 16px;
-      transition: all 0.2s ease;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn-app-store {
-      background-color: var(--text-primary);
-      color: var(--bg-primary);
-      padding: var(--spacing-md) var(--spacing-xl);
-    }
-
-    .btn-app-store:hover {
-      background-color: #2D2D2D;
-      color: var(--bg-primary);
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .btn-large {
-      padding: var(--spacing-lg) var(--spacing-xl);
-      font-size: 18px;
-    }
-
-    /* Features Grid */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: var(--spacing-xl);
-      margin-top: var(--spacing-xl);
-    }
-
-    .feature-card {
-      padding: var(--spacing-xl);
-      background-color: var(--bg-card);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      display: flex;
-      align-items: flex-start;
-      gap: var(--spacing-md);
-    }
-
-    .feature-card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .feature-icon {
-      flex-shrink: 0;
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-      padding-top: 2px; /* Align with text baseline */
-    }
-
-    /* Icon sizes from PDF - exact dimensions */
-    .feature-card[data-tracker="sleep"] .feature-icon img {
-      width: 21.43px;
-      height: 21.16px;
-      object-fit: contain;
-    }
-
-    .feature-card[data-tracker="feeding"] .feature-icon img {
-      width: 12.54px;
-      height: 24.71px;
-      object-fit: contain;
-    }
-
-    .feature-card[data-tracker="diapers"] .feature-icon img {
-      width: 16.91px;
-      height: 22.78px;
-      object-fit: contain;
-    }
-
-    .feature-card[data-tracker="growth"] .feature-icon img {
-      width: 21.96px;
-      height: 21.96px;
-      object-fit: contain;
-    }
-
-    .feature-content {
-      flex: 1;
-    }
-
-    .feature-card h3 {
-      font-size: 21px;
-      line-height: 25px;
-      font-weight: 400;
-      margin-bottom: var(--spacing-xs);
-    }
-
-    /* Colors from PDF Page 1 */
-    .feature-card[data-tracker="sleep"] h3 {
-      color: #1572FF;
-    }
-
-    .feature-card[data-tracker="feeding"] h3 {
-      color: #FF5C00;
-    }
-
-    .feature-card[data-tracker="diapers"] h3 {
-      color: #00C064;
-    }
-
-    .feature-card[data-tracker="growth"] h3 {
-      color: #4D9F86;
-    }
-
-    .feature-card p {
-      font-size: 13px;
-      line-height: 16px;
-      margin-bottom: 0;
-    }
-
-    /* Benefits Grid */
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: var(--spacing-lg);
-      margin-top: var(--spacing-xl);
-    }
-
-    .benefit-card {
-      display: flex;
-      gap: var(--spacing-md);
-      padding: var(--spacing-lg);
-      background-color: var(--bg-card);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .benefit-icon {
-      flex-shrink: 0;
-      width: 48px;
-      height: 48px;
-      color: var(--primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .benefit-content h3 {
-      margin-bottom: var(--spacing-xs);
-    }
-
-    .benefit-content p {
-      font-size: 15px;
-      margin-bottom: 0;
-    }
-
-    /* Screenshots Grid */
-    .screenshots-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: var(--spacing-xl);
-      margin-top: var(--spacing-xl);
-    }
-
-    .screenshot-item {
-      text-align: center;
-    }
-
-    .screenshot-placeholder {
-      background: linear-gradient(135deg, #E8F4FD 0%, #F0F8FF 100%);
-      border-radius: var(--radius-lg);
-      padding: var(--spacing-lg);
-      margin-bottom: var(--spacing-md);
-      box-shadow: var(--shadow-sm);
-      min-height: 400px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--border-light);
-    }
-
-    .screenshot-placeholder svg {
-      width: 100%;
-      max-width: 300px;
-      height: auto;
-      opacity: 0.6;
-    }
-
-    .screenshot-placeholder img {
-      width: 100%;
-      max-width: 300px;
-      height: auto;
-      object-fit: contain;
-      display: block;
-    }
-
-    .screenshot-item h3 {
-      font-size: 21px;
-      line-height: 25px;
-      font-weight: 400;
-      margin-bottom: var(--spacing-sm);
-      margin-top: var(--spacing-md);
-    }
-
-    .screenshot-item p {
-      font-weight: 400;
-      color: var(--text-secondary);
-      margin-bottom: 0;
-      font-size: 15px;
-      line-height: 1.5;
-    }
-
-    /* Captain's Log */
-    .captains-log-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--spacing-xxxl);
-      align-items: center;
-    }
-
-    .captains-log-text h2 {
-      margin-bottom: var(--spacing-md);
-    }
-
-    .captains-log-text p {
-      margin-bottom: var(--spacing-md);
-    }
-
-    .premium-note {
-      font-weight: 500;
-      color: var(--primary);
-      margin-top: var(--spacing-md);
-    }
-
-    .captains-log-preview {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .pdf-preview {
-      background-color: var(--bg-card);
-      border-radius: var(--radius-lg);
-      padding: var(--spacing-xl);
-      box-shadow: var(--shadow-md);
-      text-align: center;
-      min-width: 200px;
-    }
-
-    .pdf-icon {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto var(--spacing-md);
-      color: var(--primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .pdf-label {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-xs);
-    }
-
-    .pdf-title {
-      font-weight: 600;
-      font-size: 18px;
-      color: var(--text-primary);
-    }
-
-    .pdf-subtitle {
-      font-size: 14px;
-      color: var(--text-secondary);
-    }
-
-    /* Pricing */
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: var(--spacing-xl);
-      margin-top: var(--spacing-xl);
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .pricing-card {
-      background-color: var(--bg-card);
-      border-radius: var(--radius-lg);
-      padding: var(--spacing-xl);
-      box-shadow: var(--shadow-sm);
-      position: relative;
-    }
-
-    .pricing-card-featured {
-      border: 2px solid var(--primary);
-      box-shadow: var(--shadow-md);
-    }
-
-    .pricing-badge {
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: var(--primary);
-      color: var(--bg-primary);
-      padding: var(--spacing-xs) var(--spacing-md);
-      border-radius: var(--radius-sm);
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .pricing-card h3 {
-      margin-top: var(--spacing-md);
-      margin-bottom: var(--spacing-md);
-    }
-
-    .pricing-amount {
-      font-size: 48px;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: var(--spacing-lg);
-    }
-
-    .pricing-period {
-      font-size: 18px;
-      font-weight: 400;
-      color: var(--text-secondary);
-    }
-
-    .pricing-features {
-      list-style: none;
-    }
-
-    .pricing-features li {
-      display: flex;
-      align-items: flex-start;
-      gap: var(--spacing-sm);
-      margin-bottom: var(--spacing-md);
-      color: var(--text-secondary);
-    }
-
-    .pricing-features li svg {
-      flex-shrink: 0;
-      margin-top: 2px;
-      color: var(--primary);
-    }
-
-    /* CTA Section */
-    .cta-section {
-      text-align: center;
-      background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
-    }
-
-    .cta-section h2 {
-      margin-bottom: var(--spacing-md);
-    }
-
-    .cta-section p {
-      margin-bottom: var(--spacing-xl);
-      font-size: 18px;
-    }
-
-    /* Privacy Section */
-    .privacy-content {
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .privacy-icon {
-      width: 64px;
-      height: 64px;
-      margin: 0 auto var(--spacing-lg);
-      color: var(--primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .privacy-content h2 {
-      margin-bottom: var(--spacing-md);
-    }
-
-    .privacy-content p {
-      font-size: 16px;
-      margin-bottom: var(--spacing-md);
-    }
-
-    /* Contact Section */
-    #contact {
-      text-align: center;
-    }
-
-    .contact-email {
-      font-size: 18px;
-      font-weight: 500;
-      color: var(--primary);
-    }
-
-    /* Footer */
-    .footer {
-      background-color: var(--bg-secondary);
-      padding: var(--spacing-xl) 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: var(--spacing-lg);
-    }
-
-    .footer-brand {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-xs);
-    }
-
-    .footer-logo {
-      font-weight: 600;
-      font-size: 18px;
-      color: var(--text-primary);
-    }
-
-    .footer-copyright {
-      font-size: 14px;
-      color: var(--text-secondary);
-      margin: 0;
-    }
-
-    .footer-nav {
-      display: flex;
-      gap: var(--spacing-lg);
-    }
-
-    .footer-nav a {
-      font-size: 14px;
-      color: var(--text-secondary);
-    }
-
-    .footer-nav a:hover {
-      color: var(--text-primary);
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 36px;
-      }
-      
-      h2 {
-        font-size: 28px;
-      }
-      
-      .hero-content {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-xl);
-      }
-      
-      .hero-image {
-        order: -1;
-      }
-      
-      .features-grid,
-      .benefits-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .captains-log-content {
-        grid-template-columns: 1fr;
-      }
-      
-      .pricing-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .footer-content {
-        flex-direction: column;
-        text-align: center;
-      }
-      
-      .section {
-        padding: var(--spacing-xxl) 0;
-      }
-      
-      .hero {
-        padding: var(--spacing-xxl) 0;
-      }
-    }
-
-    @media (max-width: 480px) {
-      :root {
-        --container-padding: 16px;
-      }
-      
-      h1 {
-        font-size: 32px;
-      }
-      
-      h2 {
-        font-size: 24px;
-      }
-      
-      .hero-tagline {
-        font-size: 20px;
-      }
-      
-      .hero-description {
-        font-size: 16px;
-      }
-    }
-  </style>
 </head>
 <body>
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <a href="#hero" class="logo">Scoopy Log</a>
+      <nav class="site-nav" aria-label="Page sections">
+        <a href="/sleep">Sleep Plan</a>
+        <a href="#what-is">What it is</a>
+        <a href="#how-it-helps">How it works</a>
+        <a href="#why-choose">Why choose</a>
+        <a href="#captains-log">Captain's Log</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#faq">FAQ</a>
+        <a href="#download">Download</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
   <!-- Hero Section -->
   <section class="hero" id="hero">
     <div class="container">
@@ -966,8 +251,9 @@
   <section class="section section-alt" id="simple-design">
     <div class="container">
       <h2>Simple by design</h2>
-      <div class="screenshots-grid">
-        <div class="screenshot-item">
+      <div class="screenshots-carousel">
+        <div class="screenshots-track" id="screenshots-track" role="region" aria-label="App screenshots">
+          <div class="screenshot-item">
           <div class="screenshot-placeholder">
             <img src="assets/screenshots/screen_01.PNG" alt="Scoopy Log app screenshot" loading="lazy" decoding="async">
           </div>
@@ -988,6 +274,64 @@
           <h3>Captain's Log (PDF)</h3>
           <p>Export a Summary (Free) or Full (Premium) PDF—calm, readable, and yours to keep.</p>
         </div>
+        <div class="screenshot-item">
+          <div class="screenshot-placeholder">
+            <img src="assets/screenshots/screen_04.PNG" alt="Scoopy Log app screenshot" loading="lazy" decoding="async">
+          </div>
+          <h3>App screenshot</h3>
+          <p>Another view of Scoopy Log.</p>
+        </div>
+        <div class="screenshot-item">
+          <div class="screenshot-placeholder">
+            <img src="assets/screenshots/screen_05.PNG" alt="Scoopy Log app screenshot" loading="lazy" decoding="async">
+          </div>
+          <h3>App screenshot</h3>
+          <p>Another view of Scoopy Log.</p>
+        </div>
+        <div class="screenshot-item">
+          <div class="screenshot-placeholder">
+            <img src="assets/screenshots/screen_06.PNG" alt="Scoopy Log app screenshot" loading="lazy" decoding="async">
+          </div>
+          <h3>App screenshot</h3>
+          <p>Another view of Scoopy Log.</p>
+        </div>
+        <div class="screenshot-item">
+          <div class="screenshot-placeholder">
+            <img src="assets/screenshots/screen_07.PNG" alt="Scoopy Log app screenshot" loading="lazy" decoding="async">
+          </div>
+          <h3>App screenshot</h3>
+          <p>Another view of Scoopy Log.</p>
+        </div>
+        <div class="screenshot-item">
+          <div class="screenshot-placeholder">
+            <img src="assets/screenshots/screen_08.PNG" alt="Scoopy Log app screenshot" loading="lazy" decoding="async">
+          </div>
+          <h3>App screenshot</h3>
+          <p>Another view of Scoopy Log.</p>
+        </div>
+        <div class="screenshot-item">
+          <div class="screenshot-placeholder">
+            <img src="assets/screenshots/screen_09.PNG" alt="Scoopy Log app screenshot" loading="lazy" decoding="async">
+          </div>
+          <h3>App screenshot</h3>
+          <p>Another view of Scoopy Log.</p>
+        </div>
+        <div class="screenshot-item">
+          <div class="screenshot-placeholder">
+            <img src="assets/screenshots/screen_10.PNG" alt="Scoopy Log app screenshot" loading="lazy" decoding="async">
+          </div>
+          <h3>App screenshot</h3>
+          <p>Another view of Scoopy Log.</p>
+        </div>
+        </div>
+        <nav class="carousel-nav" aria-label="Carousel navigation">
+          <button type="button" class="carousel-btn carousel-prev" aria-label="Previous screenshots">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button type="button" class="carousel-btn carousel-next" aria-label="Next screenshots">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </nav>
       </div>
     </div>
   </section>
@@ -1041,6 +385,7 @@
         <div class="pricing-card pricing-card-featured">
           <h3>Yearly</h3>
           <div class="pricing-amount">$39.99 <span class="pricing-period">/ year</span></div>
+          <p class="pricing-per-month" style="margin: 0.25rem 0 1rem; font-size: 0.95rem; color: var(--text-secondary);">Only $3.33/month</p>
           <ul class="pricing-features">
             <li>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1061,7 +406,7 @@
   </section>
 
   <!-- Privacy -->
-  <section class="section section-alt" id="privacy">
+  <section class="section" id="privacy">
     <div class="container">
       <div class="privacy-content">
         <div class="privacy-icon">
@@ -1136,25 +481,39 @@
   </footer>
 
   <script>
-    // Smooth scroll for anchor links
     document.addEventListener('DOMContentLoaded', function() {
+      // Smooth scroll for anchor links
       const anchorLinks = document.querySelectorAll('a[href^="#"]');
-      
       anchorLinks.forEach(link => {
         link.addEventListener('click', function(e) {
           const href = this.getAttribute('href');
           if (href === '#') return;
-          
           const target = document.querySelector(href);
           if (target) {
             e.preventDefault();
-            target.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
         });
       });
+
+      // Screenshots carousel: prev/next buttons
+      const track = document.getElementById('screenshots-track');
+      const prevBtn = document.querySelector('.screenshots-carousel .carousel-prev');
+      const nextBtn = document.querySelector('.screenshots-carousel .carousel-next');
+      if (track && prevBtn && nextBtn) {
+        var step = 272;
+        var first = track.querySelector('.screenshot-item');
+        if (first) {
+          var gap = parseInt(getComputedStyle(track).gap, 10) || 32;
+          step = first.offsetWidth + gap;
+        }
+        prevBtn.addEventListener('click', function() {
+          track.scrollBy({ left: -step, behavior: 'smooth' });
+        });
+        nextBtn.addEventListener('click', function() {
+          track.scrollBy({ left: step, behavior: 'smooth' });
+        });
+      }
     });
   </script>
 </body>

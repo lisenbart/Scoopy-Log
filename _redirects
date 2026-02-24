@@ -1,0 +1,4 @@
+# Proxy /sleep to the Sleep Plan app (Next.js on a separate Netlify site)
+# Replace YOUR-SLEEP-NETLIFY-URL with your Sleep MVP site URL (https://scoopylog-sleep.netlify.app)
+/sleep/*  https://scoopylog-sleep.netlify.app/sleep/:splat  200!
+/sleep    https://scoopylog-sleep.netlify.app/sleep  200!
