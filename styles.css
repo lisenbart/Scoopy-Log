@@ -1,6 +1,6 @@
 /*
   Scoopy Log — Design system
-  Calm, premium, minimal. One accent (soft teal). System fonts. Dark mode via prefers-color-scheme.
+  Calm, premium, minimal. Accent aligned with app onboarding blue (#00A2EC). System fonts. Dark mode via prefers-color-scheme.
   No copy changes; layout and visual only.
 */
 
@@ -26,9 +26,9 @@
   --text-secondary: #475569;
   --text-muted: #94A3B8;
   
-  --accent: #0D9488;
-  --accent-hover: #0F766E;
-  --accent-subtle: rgba(13, 148, 136, 0.08);
+  --accent: #00A2EC;
+  --accent-hover: #0086C4;
+  --accent-subtle: rgba(0, 162, 236, 0.08);
   
   --border: #E2E8F0;
   --border-light: #F1F5F9;
@@ -89,9 +89,9 @@
     --text-secondary: #CBD5E1;
     --text-muted: #94A3B8;
     
-    --accent: #2DD4BF;
-    --accent-hover: #5EEAD4;
-    --accent-subtle: rgba(45, 212, 191, 0.12);
+    --accent: #38B8F0;
+    --accent-hover: #5EC9F5;
+    --accent-subtle: rgba(0, 162, 236, 0.15);
     
     --border: #334155;
     --border-light: #475569;
@@ -294,7 +294,10 @@ a:focus-visible {
 }
 
 .section-alt {
-  background-image: linear-gradient(180deg, rgba(242, 242, 247, 0.6) 0%, rgba(229, 229, 234, 0.6) 100%), url('assets/bg-sky-day.webp');
+  background-image:
+    linear-gradient(180deg, transparent 0%, transparent 45%, rgba(242, 242, 247, 0.6) 80%, var(--bg-primary) 100%),
+    linear-gradient(180deg, rgba(242, 242, 247, 0.6) 0%, rgba(229, 229, 234, 0.6) 100%),
+    url('assets/bg-sky-day.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -303,7 +306,10 @@ a:focus-visible {
 /* --- Hero --- */
 .hero {
   padding: var(--space-xxxl) 0;
-  background-image: linear-gradient(180deg, rgba(242, 242, 247, 0.6) 0%, rgba(229, 229, 234, 0.6) 100%), url('assets/bg-sky-day.webp');
+  background-image:
+    linear-gradient(180deg, transparent 0%, transparent 38%, rgba(255, 255, 255, 0.5) 72%, rgba(242, 242, 247, 0.98) 86%, var(--bg-primary) 100%),
+    linear-gradient(180deg, rgba(242, 242, 247, 0.6) 0%, rgba(229, 229, 234, 0.6) 100%),
+    url('assets/bg-sky-day.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -373,7 +379,7 @@ a:focus-visible {
 }
 
 .btn-app-store {
-  background: #00C0E8;
+  background: var(--accent);
   color: #FFFFFF;
   border-radius: 999px;
 }
@@ -394,7 +400,7 @@ a:focus-visible {
 
 @media (prefers-color-scheme: dark) {
   .btn-app-store {
-    background: #00C0E8;
+    background: var(--accent);
     color: #FFFFFF;
   }
 }
@@ -452,7 +458,7 @@ a:focus-visible {
 .feature-card[data-tracker="sleep"] h3 { color: #1572FF; }
 .feature-card[data-tracker="feeding"] h3 { color: #E85D04; }
 .feature-card[data-tracker="diapers"] h3 { color: #059669; }
-.feature-card[data-tracker="growth"] h3 { color: #0D9488; }
+.feature-card[data-tracker="growth"] h3 { color: var(--accent); }
 
 .feature-card ul {
   margin: 0;
