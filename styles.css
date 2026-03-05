@@ -4,11 +4,14 @@
   No copy changes; layout and visual only.
 */
 
-/* --- Font --- */
+/* --- Font: SF Compact Rounded (same as app onboarding); one file, bold synthesized --- */
 @font-face {
   font-family: 'SF Compact Rounded';
-  src: url('assets/font/SF-Compact-Rounded-Regular.otf') format('opentype');
-  font-weight: 400;
+  src: local('SF Compact Rounded'),
+       local('SFCompactRounded-Regular'),
+       url('/assets/font/SF-Compact-Rounded-Regular.otf') format('opentype'),
+       url('assets/font/SF-Compact-Rounded-Regular.otf') format('opentype');
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
@@ -53,8 +56,11 @@
   --space-xxl: 60px;
   --space-xxxl: 80px;
   
-  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+  /* SF Rounded as in app (SF Compact Rounded / SF Pro Rounded) */
+  --font-sans: "SF Compact Rounded", -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "Segoe UI Rounded", system-ui, sans-serif;
   --font-display: "SF Compact Rounded", -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "Segoe UI Rounded", system-ui, sans-serif;
+  /* Header gradient: loader percentage style (#2B7FFF → #00B8DB) */
+  --header-gradient: linear-gradient(90deg, #2B7FFF 0%, #00B8DB 100%);
   --font-size-base: 17px;
   --line-height-base: 1.6;
   --line-height-tight: 1.25;
@@ -242,12 +248,15 @@ body {
   padding: 0 var(--container-pad);
 }
 
-/* --- Typography --- */
+/* --- Typography (SF Rounded, weight 800, loader-style gradient as in app) --- */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 800;
   line-height: var(--line-height-tight);
-  color: var(--text-primary);
+  background: var(--header-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 h1 {
@@ -327,11 +336,15 @@ a:focus-visible {
 }
 
 .hero-tagline {
+  font-family: var(--font-display);
   font-size: 1.35rem;
-  font-weight: 500;
-  color: var(--text-primary);
+  font-weight: 800;
   margin-bottom: var(--space-md);
   line-height: 1.35;
+  background: var(--header-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .hero-description {
