@@ -257,10 +257,10 @@ body {
   padding: 0 var(--container-pad);
 }
 
-/* --- Typography (SF Rounded, weight 800, loader-style gradient as in app) --- */
+/* --- Typography (SF Rounded, heavy 800, loader-style gradient as in app) --- */
 h1, h2, h3, h4, h5, h6 {
   font-family: inherit;
-  font-weight: 800;
+  font-weight: 800; /* heavy */
   line-height: var(--line-height-tight);
   background: var(--header-gradient);
   -webkit-background-clip: text;
@@ -474,6 +474,7 @@ a:focus-visible {
 
 .feature-card h3 {
   font-size: 1.2rem;
+  font-weight: 800;
   margin-bottom: var(--space-xs);
 }
 
@@ -526,6 +527,7 @@ a:focus-visible {
 }
 
 .benefit-content h3 {
+  font-weight: 800;
   margin-bottom: var(--space-xs);
 }
 
@@ -594,6 +596,7 @@ a:focus-visible {
 
 .screenshot-item h3 {
   font-size: 1.05rem;
+  font-weight: 800;
   margin-top: var(--space-sm);
   margin-bottom: var(--space-xs);
 }
@@ -656,6 +659,7 @@ a:focus-visible {
 }
 
 .captains-log-text h2 {
+  font-weight: 800;
   margin-bottom: var(--space-md);
 }
 
@@ -742,6 +746,7 @@ a:focus-visible {
 }
 
 .pricing-card h3 {
+  font-weight: 800;
   margin-top: 0;
   margin-bottom: var(--space-md);
 }
@@ -790,6 +795,7 @@ a:focus-visible {
 }
 
 .cta-section h2 {
+  font-weight: 800;
   margin-bottom: var(--space-lg);
 }
 
@@ -815,6 +821,7 @@ a:focus-visible {
 }
 
 .privacy-content h2 {
+  font-weight: 800;
   margin-bottom: var(--space-md);
 }
 
@@ -932,10 +939,12 @@ a:focus-visible {
 }
 
 .legal-article h1 {
+  font-weight: 800;
   margin-bottom: var(--space-md);
 }
 
 .legal-article h2 {
+  font-weight: 800;
   margin-top: var(--space-xl);
   margin-bottom: var(--space-md);
 }
