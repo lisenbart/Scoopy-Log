@@ -134,12 +134,21 @@
   padding: 0;
 }
 
+/* SF Compact Rounded everywhere: inputs and buttons inherit from html */
+input,
+textarea,
+button,
+select {
+  font-family: inherit;
+}
+
 html {
   scroll-behavior: smooth;
+  font-family: "SF Compact Rounded", -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "Segoe UI Rounded", system-ui, sans-serif;
 }
 
 body {
-  font-family: var(--font-sans);
+  font-family: inherit;
   font-size: var(--font-size-base);
   line-height: var(--line-height-base);
   color: var(--text-primary);
@@ -168,7 +177,7 @@ body {
 }
 
 .site-header .logo {
-  font-family: var(--font-display);
+  font-family: inherit;
   font-size: 1.15rem;
   font-weight: 400;
   color: var(--text-primary);
@@ -250,7 +259,7 @@ body {
 
 /* --- Typography (SF Rounded, weight 800, loader-style gradient as in app) --- */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
+  font-family: inherit;
   font-weight: 800;
   line-height: var(--line-height-tight);
   background: var(--header-gradient);
@@ -336,7 +345,7 @@ a:focus-visible {
 }
 
 .hero-tagline {
-  font-family: var(--font-display);
+  font-family: inherit;
   font-size: 1.35rem;
   font-weight: 800;
   margin-bottom: var(--space-md);
@@ -873,7 +882,7 @@ a:focus-visible {
 }
 
 .footer-logo {
-  font-family: var(--font-display);
+  font-family: inherit;
   font-weight: 400;
   font-size: 1.1rem;
   color: var(--text-primary);
