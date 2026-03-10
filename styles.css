@@ -47,14 +47,14 @@
   --radius-lg: 22px;
   --radius-xl: 28px;
   
-  /* Slightly more generous spacing (iOS-like breathing room) */
-  --space-xs: 6px;
-  --space-sm: 12px;
-  --space-md: 20px;
-  --space-lg: 32px;
-  --space-xl: 44px;
-  --space-xxl: 60px;
-  --space-xxxl: 80px;
+  /* Compact spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 14px;
+  --space-lg: 20px;
+  --space-xl: 28px;
+  --space-xxl: 36px;
+  --space-xxxl: 44px;
   
   /* SF Rounded as in app (SF Compact Rounded / SF Pro Rounded) */
   --font-sans: "SF Compact Rounded", -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "Segoe UI Rounded", system-ui, sans-serif;
@@ -330,7 +330,7 @@ a:focus-visible {
 
 /* --- Reviews (App Store quotes) --- */
 .reviews-intro {
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-lg);
   color: var(--text-secondary);
   font-size: 1rem;
 }
@@ -394,7 +394,7 @@ a:focus-visible {
 
 /* --- Hero --- */
 .hero {
-  padding: var(--space-xxxl) 0;
+  padding: var(--space-xxl) 0;
   background-image:
     linear-gradient(180deg, transparent 0%, transparent 38%, rgba(255, 255, 255, 0.5) 72%, rgba(242, 242, 247, 0.98) 86%, var(--bg-primary) 100%),
     linear-gradient(180deg, rgba(242, 242, 247, 0.6) 0%, rgba(229, 229, 234, 0.6) 100%),
@@ -407,7 +407,7 @@ a:focus-visible {
 .hero-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-xxxl);
+  gap: var(--space-xl);
   align-items: center;
 }
 
@@ -543,7 +543,7 @@ a:focus-visible {
 /* --- Feature cards (How it works) --- */
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-lg);
   margin-top: var(--space-xl);
 }
@@ -602,7 +602,7 @@ a:focus-visible {
 /* --- Benefit cards (Why parents choose) --- */
 .benefits-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-lg);
   margin-top: var(--space-xl);
 }
@@ -760,19 +760,30 @@ a:focus-visible {
 
 /* --- Captain's Log --- */
 .captains-log-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-xxxl);
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  align-items: stretch;
 }
 
-.captains-log-text h2 {
+.captains-log-title {
   font-weight: 800;
-  margin-bottom: var(--space-md);
+  margin: 0 0 var(--space-md) 0;
+}
+
+.captains-log-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-xl);
+  align-items: start;
 }
 
 .captains-log-text p {
   margin-bottom: var(--space-md);
+}
+
+.captains-log-text p:last-child {
+  margin-bottom: 0;
 }
 
 .captains-log-preview {
@@ -1148,7 +1159,7 @@ a:focus-visible {
     grid-template-columns: 1fr;
   }
   
-  .captains-log-content {
+  .captains-log-row {
     grid-template-columns: 1fr;
   }
   
