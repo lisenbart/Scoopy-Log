@@ -71,6 +71,15 @@
   --header-height: 56px;
   --tap-min: 44px;
   
+  /* Unified card & icon system */
+  --card-padding: var(--space-xl);
+  --card-radius: var(--radius-lg);
+  --card-shadow: var(--shadow-sm);
+  --card-shadow-hover: var(--shadow-md);
+  --card-border: 1px solid var(--border-light);
+  --icon-size: 48px;
+  --icon-size-sm: 24px;
+  
   /* Aliases for inline styles (preserve existing var() in HTML) */
   --spacing-xs: var(--space-xs);
   --spacing-sm: var(--space-sm);
@@ -353,11 +362,17 @@ a:focus-visible {
 
 .review-card {
   margin: 0;
-  padding: var(--space-lg);
+  padding: var(--card-padding);
   background: var(--bg-card);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  border: var(--card-border);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.review-card:hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-2px);
 }
 
 .review-stars {
@@ -549,32 +564,37 @@ a:focus-visible {
 }
 
 .feature-card {
-  padding: var(--space-xl);
+  padding: var(--card-padding);
   background: var(--bg-card);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-light);
-  box-shadow: var(--shadow-sm);
+  border-radius: var(--card-radius);
+  border: var(--card-border);
+  box-shadow: var(--card-shadow);
   transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
   display: flex;
   align-items: flex-start;
-  gap: var(--space-md);
+  gap: var(--space-lg);
 }
 
 .feature-card:hover {
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--card-shadow-hover);
   border-color: var(--border);
   transform: translateY(-2px);
 }
 
 .feature-icon {
   flex-shrink: 0;
-  padding-top: 2px;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.feature-card[data-tracker="sleep"] .feature-icon img { width: 22px; height: 22px; object-fit: contain; }
-.feature-card[data-tracker="feeding"] .feature-icon img { width: 13px; height: 25px; object-fit: contain; }
-.feature-card[data-tracker="diapers"] .feature-icon img { width: 17px; height: 23px; object-fit: contain; }
-.feature-card[data-tracker="growth"] .feature-icon img { width: 22px; height: 22px; object-fit: contain; }
+.feature-icon img {
+  width: var(--icon-size-sm);
+  height: var(--icon-size-sm);
+  object-fit: contain;
+}
 
 .feature-content {
   flex: 1;
@@ -599,7 +619,7 @@ a:focus-visible {
   color: var(--text-secondary);
 }
 
-/* --- Benefit cards (Why parents choose) --- */
+/* --- Benefit cards (Why parents choose, Explore features) --- */
 .benefits-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -607,31 +627,52 @@ a:focus-visible {
   margin-top: var(--space-xl);
 }
 
+.benefits-grid--narrow {
+  max-width: 880px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .benefit-card {
   display: flex;
-  gap: var(--space-md);
-  padding: var(--space-lg);
+  gap: var(--space-lg);
+  padding: var(--card-padding);
   background: var(--bg-card);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-light);
-  box-shadow: var(--shadow-sm);
+  border-radius: var(--card-radius);
+  border: var(--card-border);
+  box-shadow: var(--card-shadow);
   min-height: 100px;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
 
 .benefit-card:hover {
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--card-shadow-hover);
+  border-color: var(--border);
   transform: translateY(-2px);
 }
 
 .benefit-icon {
   flex-shrink: 0;
-  width: 48px;
-  height: 48px;
+  width: var(--icon-size);
+  height: var(--icon-size);
   color: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.benefit-icon img,
+.benefit-icon svg {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  object-fit: contain;
+}
+
+/* Explore features: same icon size as How it works (smaller, not oversized) */
+#explore-features .benefit-icon img,
+#explore-features .benefit-icon svg {
+  width: var(--icon-size-sm);
+  height: var(--icon-size-sm);
 }
 
 .benefit-content h3 {
@@ -675,14 +716,14 @@ a:focus-visible {
 
 .screenshot-placeholder {
   background: var(--bg-card);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-lg);
+  border: var(--card-border);
+  border-radius: var(--card-radius);
   padding: 0;
   margin-bottom: var(--space-md);
   margin-left: auto;
   margin-right: auto;
   max-width: 220px;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--card-shadow);
   aspect-ratio: 9 / 19.5;
   overflow: hidden;
   display: block;
@@ -794,10 +835,10 @@ a:focus-visible {
 
 .pdf-preview {
   background: var(--bg-card);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-lg);
-  padding: var(--space-xl);
-  box-shadow: var(--shadow-md);
+  border: var(--card-border);
+  border-radius: var(--card-radius);
+  padding: var(--card-padding);
+  box-shadow: var(--card-shadow);
   text-align: center;
   min-width: 200px;
   transition: box-shadow 0.2s ease, transform 0.2s ease;
@@ -809,13 +850,18 @@ a:focus-visible {
 }
 
 .pdf-icon {
-  width: 64px;
-  height: 64px;
+  width: var(--icon-size);
+  height: var(--icon-size);
   margin: 0 auto var(--space-md);
   color: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.pdf-icon svg {
+  width: var(--icon-size);
+  height: var(--icon-size);
 }
 
 .pdf-title {
@@ -842,22 +888,22 @@ a:focus-visible {
 
 .pricing-card {
   background: var(--bg-card);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-lg);
-  padding: var(--space-xl);
-  box-shadow: var(--shadow-sm);
+  border: var(--card-border);
+  border-radius: var(--card-radius);
+  padding: var(--card-padding);
+  box-shadow: var(--card-shadow);
   position: relative;
   transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
 
 .pricing-card:hover {
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--card-shadow-hover);
   transform: translateY(-2px);
 }
 
 .pricing-card-featured {
   border-color: var(--accent);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--card-shadow-hover);
 }
 
 .pricing-card-featured:hover {
@@ -930,13 +976,18 @@ a:focus-visible {
 }
 
 .privacy-icon {
-  width: 56px;
-  height: 56px;
+  width: var(--icon-size);
+  height: var(--icon-size);
   margin: 0 auto var(--space-lg);
   color: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.privacy-icon svg {
+  width: var(--icon-size);
+  height: var(--icon-size);
 }
 
 .privacy-content h2 {
