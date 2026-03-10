@@ -108,7 +108,7 @@
             Scoopy Log is a simple record-keeping tool.<br>It does not provide medical advice or diagnosis.
           </p>
           <div class="hero-cta">
-            <a href="https://apps.apple.com/app/id6758025825" class="btn btn-app-store" target="_blank" rel="noopener">
+            <a href="https://apps.apple.com/app/id6758025825" class="btn btn-app-store" target="_blank" rel="noopener" data-cta-context="hero">
               <svg width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M10 0L0 6V18L10 24L20 18V6L10 0Z" fill="currentColor"/>
               </svg>
@@ -205,6 +205,62 @@
             </ul>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Explore features -->
+  <section class="section" id="explore-features">
+    <div class="container">
+      <h2>Explore features</h2>
+      <div class="benefits-grid" style="max-width: 880px; margin: 0 auto;">
+        <a href="baby-sleep-tracker.html" style="text-decoration: none; color: inherit; display: block;">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <img src="assets/icon-sleep.png" alt="Sleep tracker" width="48" height="48" style="object-fit: contain;">
+            </div>
+            <div class="benefit-content">
+              <h3>Baby sleep tracker</h3>
+              <p>Track naps, night sleep, and daily patterns in one calm app.</p>
+            </div>
+          </div>
+        </a>
+        <a href="baby-feeding-tracker.html" style="text-decoration: none; color: inherit; display: block;">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <img src="assets/icon-feeding.png" alt="Feeding tracker" width="48" height="48" style="object-fit: contain;">
+            </div>
+            <div class="benefit-content">
+              <h3>Baby feeding tracker</h3>
+              <p>Log breastfeeding, bottles, and solids in one simple daily log.</p>
+            </div>
+          </div>
+        </a>
+        <a href="diaper-log-app.html" style="text-decoration: none; color: inherit; display: block;">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <img src="assets/icon-diapers.png" alt="Diaper log" width="48" height="48" style="object-fit: contain;">
+            </div>
+            <div class="benefit-content">
+              <h3>Diaper log</h3>
+              <p>Track wet and dirty diapers in a calm, organized daily log.</p>
+            </div>
+          </div>
+        </a>
+        <a href="baby-tracker-pdf-reports.html" style="text-decoration: none; color: inherit; display: block;">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="8" y="6" width="32" height="40" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+                <path d="M16 16h16M16 22h16M16 28h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="benefit-content">
+              <h3>PDF reports</h3>
+              <p>Export clean baby tracking reports when you need them.</p>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -503,7 +559,7 @@
   <section class="section cta-section" id="download">
     <div class="container">
       <h2>Ready to start a calm daily log?</h2>
-      <a href="https://apps.apple.com/app/id6758025825" class="btn btn-app-store btn-large" target="_blank" rel="noopener">
+      <a href="https://apps.apple.com/app/id6758025825" class="btn btn-app-store btn-large" target="_blank" rel="noopener" data-cta-context="download">
         <svg width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M10 0L0 6V18L10 24L20 18V6L10 0Z" fill="currentColor"/>
         </svg>
@@ -636,6 +692,21 @@
           track.scrollBy({ left: step, behavior: 'smooth' });
         });
       }
+
+      // App Store CTA click tracking (respects consent; no-op if gtag unavailable)
+      document.querySelectorAll('.btn-app-store').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          if (typeof gtag !== 'function') return;
+          var ctx = this.getAttribute('data-cta-context') || 'cta';
+          gtag('event', 'app_store_click', {
+            event_category: 'outbound',
+            event_label: 'Download on the App Store',
+            page_location: window.location.href,
+            page_path: window.location.pathname || '/',
+            cta_context: ctx
+          });
+        });
+      });
     });
   </script>
 </body>
