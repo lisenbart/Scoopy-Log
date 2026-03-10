@@ -1133,6 +1133,74 @@ a:focus-visible {
   }
 }
 
+/* --- Cookie consent banner --- */
+.cookie-consent-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  padding: var(--space-md) var(--container-pad);
+  background: var(--bg-elevated);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.cookie-consent-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.cookie-consent-text {
+  flex: 1;
+  min-width: 200px;
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.cookie-consent-actions {
+  display: flex;
+  gap: var(--space-sm);
+  flex-shrink: 0;
+}
+
+.cookie-consent-btn {
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  min-height: var(--tap-min);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.cookie-consent-accept {
+  background: var(--accent);
+  color: #fff;
+}
+
+.cookie-consent-accept:hover {
+  background: var(--accent-hover);
+}
+
+.cookie-consent-decline {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.cookie-consent-decline:hover {
+  background: var(--border);
+}
+
 /* --- Inline overrides (preserve existing inline styles where used) --- */
 /* Sections that use inline margin/padding/color keep working; tokens above provide fallbacks. */
 

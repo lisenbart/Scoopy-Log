@@ -1,6 +1,19 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) + Consent Mode -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DVSERK56YR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied',
+      'ad_storage': 'denied',
+      'wait_for_update': 500
+    });
+    gtag('js', new Date());
+    gtag('config', 'G-DVSERK56YR');
+  </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Scoopy Log — Baby Tracker App for Sleep, Feeding & Diapers | iOS</title>
@@ -524,6 +537,17 @@
     </div>
   </footer>
 
+  <!-- Cookie consent banner -->
+  <div id="cookie-consent-banner" class="cookie-consent-banner" role="dialog" aria-label="Cookie consent" aria-live="polite" hidden>
+    <div class="cookie-consent-inner">
+      <p class="cookie-consent-text">We use cookies for analytics to improve the site. No ads or tracking for ads.</p>
+      <div class="cookie-consent-actions">
+        <button type="button" class="cookie-consent-btn cookie-consent-accept" id="cookie-consent-accept">Accept</button>
+        <button type="button" class="cookie-consent-btn cookie-consent-decline" id="cookie-consent-decline">Decline</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     (function() {
       // App Store rating: fetch from iTunes Lookup API (often returns 0 for new apps — use fallback)
@@ -557,6 +581,29 @@
     })();
 
     document.addEventListener('DOMContentLoaded', function() {
+      // Cookie consent: restore choice or show banner
+      var banner = document.getElementById('cookie-consent-banner');
+      var acceptBtn = document.getElementById('cookie-consent-accept');
+      var declineBtn = document.getElementById('cookie-consent-decline');
+      var consent = typeof localStorage !== 'undefined' && localStorage.getItem('cookie_consent');
+      if (consent === 'granted') {
+        if (typeof gtag === 'function') gtag('consent', 'update', { 'analytics_storage': 'granted', 'ad_storage': 'granted' });
+      } else if (consent === 'denied') {
+        if (typeof gtag === 'function') gtag('consent', 'update', { 'analytics_storage': 'denied', 'ad_storage': 'denied' });
+      } else if (banner) {
+        banner.removeAttribute('hidden');
+        if (acceptBtn) acceptBtn.addEventListener('click', function() {
+          if (typeof gtag === 'function') gtag('consent', 'update', { 'analytics_storage': 'granted', 'ad_storage': 'granted' });
+          try { localStorage.setItem('cookie_consent', 'granted'); } catch (e) {}
+          banner.setAttribute('hidden', '');
+        });
+        if (declineBtn) declineBtn.addEventListener('click', function() {
+          if (typeof gtag === 'function') gtag('consent', 'update', { 'analytics_storage': 'denied', 'ad_storage': 'denied' });
+          try { localStorage.setItem('cookie_consent', 'denied'); } catch (e) {}
+          banner.setAttribute('hidden', '');
+        });
+      }
+
       // Smooth scroll for anchor links
       const anchorLinks = document.querySelectorAll('a[href^="#"]');
       anchorLinks.forEach(link => {
