@@ -74,14 +74,12 @@
       <a href="#hero" class="logo">Scoopy Log</a>
       <nav class="site-nav" aria-label="Page sections">
         <a href="#what-is">What it is</a>
-        <a href="#how-it-helps">How it works</a>
-        <a href="#why-choose">Why choose</a>
-        <a href="#captains-log">Captain's Log</a>
+        <a href="#how-it-helps">Features</a>
+        <a href="#simple-design">Screenshots</a>
         <a href="#pricing">Pricing</a>
-        <a href="#privacy">Privacy</a>
         <a href="#faq">FAQ</a>
+        <a href="#reviews">Reviews</a>
         <a href="#download">Download</a>
-        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
@@ -103,10 +101,19 @@
               </svg>
               Download on the App Store
             </a>
+            <p class="hero-rating" id="hero-rating-block">
+              <a href="https://apps.apple.com/app/id6758025825#see-all/reviews" target="_blank" rel="noopener" aria-label="View ratings and reviews on the App Store">
+                <span id="hero-rating-stars" aria-hidden="true">★ ★ ★ ★ ★</span>
+                <span id="hero-rating-value" class="hero-rating-value"></span>
+              </a>
+              <span class="hero-rating-label" id="hero-rating-label">Rated on the App Store</span>
+            </p>
           </div>
         </div>
         <div class="hero-image">
-          <img src="assets/hero-avatar.jpg" alt="Scoopy Log - A calm daily log for parents" width="600" height="600" loading="eager" decoding="async" fetchpriority="high">
+          <div class="hero-device" aria-hidden="true">
+            <img src="assets/screenshots/screen_01.PNG" alt="Scoopy Log app — daily log screen" width="280" height="606" loading="eager" decoding="async">
+          </div>
         </div>
       </div>
     </div>
@@ -143,9 +150,9 @@
           <div class="feature-content">
             <h3>Sleep</h3>
             <ul style="margin: 0; padding-left: var(--spacing-md); font-size: 13px; line-height: 1.6; color: var(--text-secondary);">
-              <li>Live sleep timer on the Lock Screen</li>
-              <li>Quick sleep entries</li>
-              <li>Home &amp; Lock Screen widgets</li>
+              <li>Live sleep timer on the Lock Screen so you can see duration without unlocking</li>
+              <li>Quick sleep entries with one tap; log naps and overnight sleep</li>
+              <li>Home &amp; Lock Screen widgets to view today's log at a glance</li>
             </ul>
           </div>
         </div>
@@ -156,8 +163,8 @@
           <div class="feature-content">
             <h3>Feeding</h3>
             <ul style="margin: 0; padding-left: var(--spacing-md); font-size: 13px; line-height: 1.6; color: var(--text-secondary);">
-              <li>Nursing, bottle, and solids</li>
-              <li>Simple, fast logging</li>
+              <li>Nursing, bottle, and solids in one place</li>
+              <li>Simple, fast logging so you can record even during a feed</li>
             </ul>
           </div>
         </div>
@@ -168,8 +175,8 @@
           <div class="feature-content">
             <h3>Diapers</h3>
             <ul style="margin: 0; padding-left: var(--spacing-md); font-size: 13px; line-height: 1.6; color: var(--text-secondary);">
-              <li>Wet and dirty tracking</li>
-              <li>Clear daily history</li>
+              <li>Wet and dirty tracking with a single tap</li>
+              <li>Clear daily history for your own reference or doctor visits</li>
             </ul>
           </div>
         </div>
@@ -180,8 +187,8 @@
           <div class="feature-content">
             <h3>Measurements</h3>
             <ul style="margin: 0; padding-left: var(--spacing-md); font-size: 13px; line-height: 1.6; color: var(--text-secondary);">
-              <li>Height and weight entries</li>
-              <li>Stored for your own reference</li>
+              <li>Height and weight entries when you choose to log them</li>
+              <li>Stored for your own reference and optional PDF export</li>
             </ul>
           </div>
         </div>
@@ -334,9 +341,9 @@
       <div class="captains-log-content">
         <div class="captains-log-text">
           <h2>Captain's Log — your records, clearly formatted</h2>
-          <p>Export your logs as a clean, readable PDF.<br>Designed for personal records or sharing when needed.</p>
-          <p style="margin-top: var(--spacing-md);"><strong>Free:</strong> Summary PDF. Basic overview.</p>
-          <p><strong>Premium:</strong> Full detailed PDF. Monthly and yearly statistics. Multiple child profiles.</p>
+          <p>Export your logs as a clean, readable PDF so you can keep a personal record or share with your pediatrician when needed. No spreadsheets—just a clear, printable summary of sleep, feeding, diapers, and growth.</p>
+          <p style="margin-top: var(--spacing-md);"><strong>Free:</strong> Summary PDF with a basic overview of your entries.</p>
+          <p><strong>Premium:</strong> Full Captain's Log PDF with detailed daily logs, monthly and yearly statistics, and support for multiple child profiles.</p>
         </div>
         <div class="captains-log-preview">
           <div class="pdf-preview">
@@ -424,12 +431,55 @@
   <section class="section" id="faq">
     <div class="container">
       <h2>Questions, answered calmly</h2>
-      <div style="max-width: 640px; margin: 0 auto;">
-        <p style="margin-bottom: var(--spacing-md);"><strong>Is Scoopy Log medical advice?</strong><br>No. It is a simple logging tool.</p>
-        <p style="margin-bottom: var(--spacing-md);"><strong>Do you track me or sell data?</strong><br>No. Scoopy Log does not use ads, analytics, or third-party tracking.</p>
-        <p style="margin-bottom: var(--spacing-md);"><strong>How does iCloud sync work?</strong><br>Sync is optional and uses your personal Apple iCloud account.</p>
-        <p style="margin-bottom: var(--spacing-md);"><strong>What's the difference between Free and Premium?</strong><br>Free includes basic logging and summary export. Premium adds full PDF export, statistics, and multiple child profiles.</p>
-        <p style="margin-bottom: 0;"><strong>Can I cancel Premium?</strong><br>Yes. Subscriptions are managed in your Apple ID settings.</p>
+      <div class="faq-list" style="max-width: 640px; margin: 0 auto;">
+        <div class="faq-item">
+          <p><strong>Is Scoopy Log medical advice?</strong></p>
+          <p>No. It is a simple logging tool for your own records. It does not diagnose, treat, or recommend.</p>
+        </div>
+        <div class="faq-item">
+          <p><strong>Do you track me or sell data?</strong></p>
+          <p>No. Scoopy Log does not use ads, analytics, or third-party tracking. Your data stays on your device or in your iCloud.</p>
+        </div>
+        <div class="faq-item">
+          <p><strong>How does iCloud sync work?</strong></p>
+          <p>Sync is optional and uses your personal Apple iCloud account. We do not have access to your data. You can turn it off anytime in system Settings.</p>
+        </div>
+        <div class="faq-item">
+          <p><strong>What's the difference between Free and Premium?</strong></p>
+          <p>Free includes basic logging (sleep, feeding, diapers, growth) and a summary PDF export. Premium adds the full Captain's Log PDF with detailed statistics, multiple child profiles, and long-term trends.</p>
+        </div>
+        <div class="faq-item">
+          <p><strong>Can I track more than one child?</strong></p>
+          <p>Yes. You can create multiple profiles and switch between them. Premium unlocks full PDF export and stats for each profile.</p>
+        </div>
+        <div class="faq-item">
+          <p><strong>Can I cancel Premium?</strong></p>
+          <p>Yes. Subscriptions are managed in your Apple ID settings. You can cancel anytime and keep access until the end of the billing period.</p>
+        </div>
+        <div class="faq-item">
+          <p><strong>What devices are supported?</strong></p>
+          <p>iPhone and iPad. Data can sync across your devices with the same Apple ID when iCloud sync is enabled.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- App Store reviews (quotes from real reviews — update manually from App Store page) -->
+  <section class="section section-alt" id="reviews">
+    <div class="container">
+      <h2>What parents say</h2>
+      <p class="reviews-intro">Real reviews from the App Store. <a href="https://apps.apple.com/app/id6758025825#see-all/reviews" target="_blank" rel="noopener">Read all reviews →</a></p>
+      <div class="reviews-grid">
+        <blockquote class="review-card">
+          <span class="review-stars" aria-hidden="true">★ ★ ★ ★ ★</span>
+          <p class="review-text">We love it! Simple and cute;) and what about Apple Watch? Anyways, thank a lot!!</p>
+          <cite class="review-cite">— App Store review</cite>
+        </blockquote>
+        <blockquote class="review-card">
+          <span class="review-stars" aria-hidden="true">★ ★ ★ ★ ★</span>
+          <p class="review-text">Quite comfy so far. Testing the log</p>
+          <cite class="review-cite">— App Store review</cite>
+        </blockquote>
       </div>
     </div>
   </section>
@@ -473,6 +523,37 @@
   </footer>
 
   <script>
+    (function() {
+      // App Store rating: fetch from iTunes Lookup API (often returns 0 for new apps — use fallback)
+      var appId = '6758025825';
+      var fallbackAvg = 5;
+      var fallbackCount = 4;
+      var url = 'https://itunes.apple.com/lookup?id=' + appId + '&country=us';
+      fetch(url).then(function(r) { return r.json(); }).then(function(data) {
+        var avg = fallbackAvg;
+        var count = fallbackCount;
+        if (data && data.results && data.results[0]) {
+          var app = data.results[0];
+          if (typeof app.averageUserRating === 'number' && app.averageUserRating > 0) avg = app.averageUserRating;
+          if (typeof app.userRatingCount === 'number' && app.userRatingCount > 0) count = app.userRatingCount;
+        }
+        var valueEl = document.getElementById('hero-rating-value');
+        var labelEl = document.getElementById('hero-rating-label');
+        if (valueEl) {
+          valueEl.textContent = ' ' + (avg % 1 === 0 ? avg + '.0' : avg.toFixed(1));
+          valueEl.setAttribute('aria-label', avg + ' out of 5 stars');
+        }
+        if (labelEl) {
+          labelEl.textContent = count === 1 ? '1 rating on the App Store' : count + ' ratings on the App Store';
+        }
+      }).catch(function() {
+        var valueEl = document.getElementById('hero-rating-value');
+        var labelEl = document.getElementById('hero-rating-label');
+        if (valueEl) valueEl.textContent = ' ' + fallbackAvg + '.0';
+        if (labelEl) labelEl.textContent = fallbackCount + ' ratings on the App Store';
+      });
+    })();
+
     document.addEventListener('DOMContentLoaded', function() {
       // Smooth scroll for anchor links
       const anchorLinks = document.querySelectorAll('a[href^="#"]');

@@ -311,6 +311,77 @@ a:focus-visible {
   padding: var(--space-xxxl) 0;
 }
 
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.faq-item p:first-child {
+  margin: 0 0 var(--space-xs) 0;
+}
+
+.faq-item p:last-child {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+/* --- Reviews (App Store quotes) --- */
+.reviews-intro {
+  margin-bottom: var(--space-xl);
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.reviews-intro a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.reviews-intro a:hover {
+  text-decoration: underline;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+  max-width: 720px;
+}
+
+.review-card {
+  margin: 0;
+  padding: var(--space-lg);
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+}
+
+.review-stars {
+  display: block;
+  color: var(--accent);
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-sm);
+}
+
+.review-text {
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-sm) 0;
+  font-style: normal;
+}
+
+.review-cite {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: normal;
+}
+
 .section-alt {
   background-image:
     linear-gradient(180deg, transparent 0%, transparent 45%, rgba(242, 242, 247, 0.6) 80%, var(--bg-primary) 100%),
@@ -370,17 +441,54 @@ a:focus-visible {
   align-items: flex-start;
 }
 
+.hero-rating {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.hero-rating a {
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+}
+
+.hero-rating a:hover {
+  text-decoration: underline;
+}
+
+.hero-rating-value {
+  font-weight: 600;
+  margin-left: 0.15em;
+}
+
+.hero-rating-label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
 .hero-image {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.hero-image img {
-  max-width: 100%;
+.hero-device {
+  width: 280px;
+  border-radius: 36px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg), 0 0 0 3px var(--border);
+  background: var(--bg-card);
+}
+
+.hero-device img {
+  display: block;
+  width: 100%;
   height: auto;
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-lg);
+  vertical-align: middle;
 }
 
 /* --- Buttons (iOS-style: rounded, tap-friendly) --- */
